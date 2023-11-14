@@ -45,7 +45,7 @@ void	ft_numbers(unsigned long n, unsigned long base, char check, int *count)
 		ft_putchar('-', count);
 	}
 	if (n >= base)
-		ft_numberss(n / base, base, check, count);
+		ft_numbers(n / base, base, check, count);
 	if (check == 'X')
 		ft_putchar("0123456789ABCDEF"[(unsigned int)n % base], count);
 	else
@@ -61,17 +61,17 @@ void	check(va_list args, char s, int *count)
 	else if (s == '%')
 		ft_putchar('%', count);
 	if (s == 'd' || s == 'i')
-		ft_numberss(va_arg(args, int), 10, 'd', count);
+		ft_numbers(va_arg(args, int), 10, 'd', count);
 	if (s == 'u')
-		ft_numberss(va_arg(args, unsigned int), 10, 'u', count);
+		ft_numbers(va_arg(args, unsigned int), 10, 'u', count);
 	if (s == 'x')
-		ft_numberss(va_arg(args, unsigned int), 16, 'x', count);
+		ft_numbers(va_arg(args, unsigned int), 16, 'x', count);
 	if (s == 'X')
-		ft_numberss(va_arg(args, unsigned int), 16, 'X', count);
+		ft_numbers(va_arg(args, unsigned int), 16, 'X', count);
 	if (s == 'p')
 	{
 		ft_putstr("0x", count);
-		ft_numberss(va_arg(args, unsigned long), 16, 'x', count);
+		ft_numbers(va_arg(args, unsigned long), 16, 'x', count);
 	}
 }
 
